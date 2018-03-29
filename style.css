@@ -45,7 +45,7 @@ h1 {
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0px 0px 1px #474747;
-    margin: 0 0 0 2px;
+    margin: 0 0 10px 2px;
     vertical-align: middle;
 }
 
@@ -56,5 +56,5 @@ h2 {
 }
 
 .contactCard p {
-    padding: 27px 0;
+    padding: 27px;
 }

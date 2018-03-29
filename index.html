@@ -4,17 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Internet Assignment</title>
+    <title>Contact Card - Tim Coville</title>
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-	    $(document).ready(function(){
-            $(".contactCard").click(function(){
-                var temp = $(".contactCard").html()
-                $(".contactCard").html($(".contactCard").attr("data-alt"));
-                $(".contactCard").attr("data-alt", temp);
 
+        function flipCard(x){
+             
+            $("div[title=\""+x+"\"]").click(function(x){
+                var temp = $(this).html()
+                $(this).html($(this).attr("data-alt"));
+                $(this).attr("data-alt", temp);
+                
+            })
+        }
+
+	    $(document).ready(function(){
+         
+            
+
+            $("form").submit(function(){
+                var description = $("textarea").val(),
+                    title = $("input[name=firstName]").val()+$("input[name=lastName]").val(),
+                    name = $("input[name=firstName]").val()+" "+$("input[name=lastName]").val(),
+                    content = "<div class='contactCard' title="+title+" data-alt='<p>"+description+"</p>'><h2>"+name+"</h2><h3>Click for More!</h3></div>";                    
+                $("#contactList").append(content);
+                flipCard(title)
+                return false;
             })
 
 
@@ -37,10 +54,10 @@
         </div>
         <div id="contactList">
             <h1>Contacts</h1>
-            <div class="contactCard" data-alt="<p>This is the description</p>">
+<!--             <div class="contactCard" data-alt="<p>This is the description</p>">
                 <h2>First Name + Last Name</h2>
                 <h3>Click for More!</h3>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>
