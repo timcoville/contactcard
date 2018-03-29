@@ -10,7 +10,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 	    $(document).ready(function(){
+            $(".contactCard").click(function(){
+                var temp = $(".contactCard").html()
+                $(".contactCard").html($(".contactCard").attr("data-alt"));
+                $(".contactCard").attr("data-alt", temp);
 
+            })
 
 
 
@@ -32,7 +37,10 @@
         </div>
         <div id="contactList">
             <h1>Contacts</h1>
-            
+            <div class="contactCard" data-alt="<p>This is the description</p>">
+                <h2>First Name + Last Name</h2>
+                <h3>Click for More!</h3>
+            </div>
         </div>
     </div>
 </body>
